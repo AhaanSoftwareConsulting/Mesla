@@ -80,11 +80,11 @@ return(
         >
           {/* Icon */}
           <div className="flex justify-center mb-6">
-            <div className="w-[72px] h-[72px] rounded-full bg-[#115492] flex items-center justify-center">
+            <div className="w-[72px] h-[72px]  rounded-full bg-[#115492] flex items-center justify-center">
               <img
                 src={item.icon}
                 alt={item.title}
-                className="w-9 h-9 object-contain"
+                className="w-9 h-9  object-contain"
               />
             </div>
           </div>

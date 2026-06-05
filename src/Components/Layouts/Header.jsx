@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useCart } from "../../context/CartContext";
@@ -15,9 +15,10 @@ const Header = ({
   onSearch = () => {},
 }) => {
   const [cartOpen, setCartOpen] = useState(false);
-
-  const [searchTerm, setSearchTerm] = useState("");
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Cart Context
   const {
@@ -44,6 +45,24 @@ const totalCartItems = cart.reduce(
     e.preventDefault();
     onSearch(searchTerm);
   };
+  useEffect(() => {
+  fetch(
+    "https://soumi.ahaanmedia.com/wp-json/wc/store/v1/products"
+  )
+    .then((res) => res.json())
+    .then((data) => setProducts(data))
+    .catch((err) => console.log(err));
+}, []);
+
+const filteredProducts = products.filter(
+  (product) =>
+    product.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase()) ||
+    product.sku
+      ?.toLowerCase()
+      .includes(searchTerm.toLowerCase())
+);
   
   return (
     <header className="bg-[#232F3F]">
@@ -79,15 +98,18 @@ const totalCartItems = cart.reduce(
                 type="text"
                 value={searchTerm}
    onChange={(e) => {
-    setSearchTerm(e.target.value);
-    onSearch(e.target.value);
-  }}
+  setSearchTerm(e.target.value);
+  setShowSearch(e.target.value.trim() !== "");
+}}onBlur={() =>
+  setTimeout(() => setShowSearch(false), 200)
+}
                 placeholder="Search products..."
                 className="flex-1 px-4 text-sm outline-none"
               />
+              
 
               <button
-                type="submit"
+                onClick={() => setShowSearch(true)}
                 className="bg-[#115492] px-6 text-white flex items-center justify-center"
               >
                 <MagnifyingGlassIcon size={22} />
@@ -148,10 +170,15 @@ const totalCartItems = cart.reduce(
             <input
               type="text"
               value={searchTerm}
-             onChange={(e) => {
-    setSearchTerm(e.target.value);
-    onSearch(e.target.value);
-  }}
+            onChange={(e) => {
+  setSearchTerm(e.target.value);
+
+  if (e.target.value.trim()) {
+    setShowSearch(true);
+  } else {
+    setShowSearch(false);
+  }
+}}
               placeholder="Search by products name of SKU..."
               className="flex-1 px-4 text-sm outline-none"
             />
@@ -294,6 +321,47 @@ const totalCartItems = cart.reduce(
 </div>
     </div>
   </>
+)}
+ {showSearch && searchTerm && (
+  <div className="absolute inset-0 top-1/3 z-10  mx-auto  h-[400px] min-w-[350px] max-w-[700px]  rounded-sm bg-white shadow-xl overflow-y-auto">
+
+    {filteredProducts.length > 0 ? (
+      filteredProducts.map((product) => (
+        <div
+          key={product.id}
+          className="flex items-center gap-4 border-b p-4 hover:bg-gray-50"
+        >
+          <img
+            src={product.images?.[0]?.src}
+            alt={product.name}
+            className="h-14 w-14 object-contain"
+          />
+
+          <div className="flex-1">
+            <h3 className="font-medium text-[#232F3F]">
+              {product.name}
+            </h3>
+
+            <p className="text-sm text-gray-500">
+              SKU: {product.sku || "N/A"}
+            </p>
+          </div>
+
+          <div className="font-semibold text-[#115492]">
+            $
+            {product.prices?.price
+              ? Number(product.prices.price) / 100
+              : 0}
+          </div>
+        </div>
+      ))
+    ) : (
+      <p className="p-6 text-center text-gray-500">
+        No products found
+      </p>
+    )}
+  </div>
+  
 )}
     </header>
   );

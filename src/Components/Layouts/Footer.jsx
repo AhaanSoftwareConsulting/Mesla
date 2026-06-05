@@ -40,9 +40,9 @@ export default function Footer() {
             <div className="max-w-[1440px] relative mx-auto px-4 md:px-8 lg:px-12 xl:px-[70px] py-10 md:py-[75px]">
                 
                 {/* FOOTER CONTENT */}
-                    <div className="grid  grid-cols-1 lg:grid-cols-12  gap-10 xl:gap-[139px] overflow-hidden">
+                    <div className="grid  grid-cols-1 lg:grid-cols-4 xl:grid-cols-12  gap-10 xl:gap-[139px] overflow-hidden">
                         {/* LEFT */}
-                    <div className="relative lg:col-span-3">
+                    <div className="relative xl:col-span-3">
                         {/* Logo */}
                         <div className="mb-5 ">
                             <a href="/" className="text-decoration-none">
@@ -84,7 +84,7 @@ export default function Footer() {
                         </div>
                     </div>
                         {/* Services */}
-                        <div className="lg:col-span-3">
+                        <div className="xl:col-span-3">
                             <h3 className="mb-[33px] text-lg font-semibold">
                                 Services
                             </h3>
@@ -102,7 +102,7 @@ export default function Footer() {
                         </div>
 
                         {/* Resources */}
-                        <div className="lg:col-span-2">
+                        <div className="xl:col-span-2">
                             <h3 className="mb-[33px] text-lg font-semibold">
                                 Resources
                             </h3>
@@ -125,7 +125,7 @@ export default function Footer() {
                         </div>
 
                         {/* Office */}
-                        <div className="lg:col-span-3">
+                        <div className="xl:col-span-3">
                             <h3 className="mb-[33px] text-lg font-semibold">
                                 Our Office
                             </h3>

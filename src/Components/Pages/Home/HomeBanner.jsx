@@ -35,7 +35,7 @@ export default function Hero() {
 
   return (
     <section
-      className="w-full max-w-[1440xpx] relative h-[380px] md:h-[450px] lg:h-[600px]  overflow-hidden bg-cover bg-center"
+      className="w-full max-w-[1440xpx] relative h-[450px] lg:h-[600px]  overflow-hidden bg-cover bg-center"
     >
         <img
     src={banner}
@@ -53,12 +53,12 @@ export default function Hero() {
           
           className="text-[27px] md:text-4xl lg:text-[45px] xl:text-[60px] leading-tight font-heading font-bold text-white"          
         >
-          Transform Interiors <br className="hidden md:block"/>  With Premium <span className="text-[#40ABE2]">Lighting</span>
+          Transform Interiors <br />  With Premium <span className="sm:text-[#40ABE2] ">Lighting</span>
         </h1>
         <p
           className="text-sm md:text-lg text-white  leading-snug "
         >
-          Discover sophisticated lighting solutions crafted to enhance modern<br className="hidden md:block"/> interiors with elegance, warmth, and timeless luxury.
+          Discover sophisticated lighting solutions crafted to enhance modern<br className="hidden sm:block"/> interiors with elegance, warmth, and timeless luxury.
         </p>
 
 

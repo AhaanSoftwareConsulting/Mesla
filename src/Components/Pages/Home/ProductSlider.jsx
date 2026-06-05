@@ -105,7 +105,7 @@ if (!filteredProducts.length) {
       {/* Header */}
       <div className="mb-12 flex items-center justify-between">
         <h3 className="text-2xl md:text-[32px] font-bold text-[#232F3F] font-heading">
-          Recommended for you
+          Recommended <br className="sm:hidden"/> for you
         </h3>
 
         <button className="cursor-pointer flex items-center gap-2 text-[#115492] text-sm md:text-base font-medium">
@@ -142,13 +142,13 @@ if (!filteredProducts.length) {
       : ""
   }`}
   style={{
-    transform: `translateX(-${slide * 284}px)`,
+    transform: `translateX(-${slide * 254}px)`,
   }}
 >
             {duplicatedProducts.map((product, index) => (
               <div
                key={`${product.id}-${index}`}
-                className="group w-[264px] rounded-xl bg-white p-[30px_20px]"
+                className="group w-[234px] flex-shrink-0 rounded-xl bg-white p-[30px_20px]"
               >
                 {/* Image */}
                 <div className="flex h-[160px] items-center justify-center overflow-hidden">

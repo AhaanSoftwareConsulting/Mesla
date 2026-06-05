@@ -58,16 +58,16 @@ export default function Contact() {
 
   return (
     <section className="max-w-[1440px] mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2">
         
         {/* Left Content */}
         <div className="bg-[#232F3F] px-6 md:px-8 :lg:px-12 xl:pl-[70px] xl:pr-[20px] py-10  items-center">
           <div className="relative">
             
             {/* Heading */}
-            <h3 className="font-heading text-[#F9FCFE] text-2xl md:text-[32px] leading-relaxed mb-8 font-bold">
+            <h3 className="font-heading text-[#F9FCFE] text-xl lg:text-[32px] lg:leading-relaxed mb-8 font-bold">
               Subscribe to Mesla
-              <br />
+              <br className="hidden lg:block" />
               <span className="text-[FFFFDA]">And Receive all our News & Offers</span>
             </h3>
 
@@ -86,7 +86,7 @@ export default function Contact() {
                 message: "Only letters are allowed",
               },
             })}
-                className="w-full rounded-full bg-white px-5 py-5 text-sm outline-none placeholder:text-[#8A8A8A]"
+                className="w-full rounded-full bg-white px-5 py-2 lg:py-5 text-sm outline-none placeholder:text-[#8A8A8A]"
               />
 {errors.name && (
             <p className="text-red-500 text-xs ml-5">{errors.name.message}</p>
@@ -103,7 +103,7 @@ export default function Contact() {
                 message: "Invalid email",
               },
             })}
-                className="w-full rounded-full bg-white px-5 py-5 text-sm outline-none placeholder:text-[#8A8A8A]"
+                className="w-full rounded-full bg-white px-5 py-2 lg:py-5 text-sm outline-none placeholder:text-[#8A8A8A]"
               />
 {errors.email && (
             <p className="text-red-500 text-xs ml-5">{errors.email.message}</p>
@@ -155,7 +155,7 @@ export default function Contact() {
 
               setValue("phone", paste.slice(0, 15));
             }}
-                className="w-full rounded-full bg-white px-5 py-5 text-sm outline-none placeholder:text-[#8A8A8A]"
+                className="w-full rounded-full bg-white px-5 py-2 lg:py-5 text-sm outline-none placeholder:text-[#8A8A8A]"
               />
               {errors.phone && (
             <p className="text-red-500 text-xs ml-5">{errors.phone.message}</p>
