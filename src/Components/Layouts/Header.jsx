@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../Context/CartContext";
 import {
   HeartStraightIcon,
   HandbagIcon,
