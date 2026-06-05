@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes,  useLocation } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
+import { CartProvider } from "./Context/CartContext";
 import Topbar from "./Components/Layouts/Topbar";
 import Header from "./Components/Layouts/Header";
 import Footer from "./Components/Layouts/Footer";

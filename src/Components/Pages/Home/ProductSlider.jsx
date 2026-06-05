@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../../../context/CartContext";
+import { useCart } from "../../../Context/CartContext";
 import {
   CaretLeftIcon,
   CaretRightIcon,
