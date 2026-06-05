@@ -19,6 +19,9 @@ const Header = ({
   const [showSearch, setShowSearch] = useState(false);
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
 
   // Cart Context
   const {
@@ -45,6 +48,17 @@ const totalCartItems = cart.reduce(
     e.preventDefault();
     onSearch(searchTerm);
   };
+  //categories
+  useEffect(() => {
+  fetch(
+    "https://soumi.ahaanmedia.com/wp-json/wc/store/v1/products/categories"
+  )
+    .then((res) => res.json())
+    .then((data) => setCategories(data))
+    .catch(console.error);
+}, []);
+
+//products
   useEffect(() => {
   fetch(
     "https://soumi.ahaanmedia.com/wp-json/wc/store/v1/products"
@@ -54,14 +68,25 @@ const totalCartItems = cart.reduce(
     .catch((err) => console.log(err));
 }, []);
 
-const filteredProducts = products.filter(
-  (product) =>
-    product.name
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase()) ||
-    product.sku
-      ?.toLowerCase()
-      .includes(searchTerm.toLowerCase())
+const searchResults = products.filter(
+  (product) => {
+    const matchesSearch =
+      product.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+      product.sku
+        ?.toLowerCase()
+        .includes(searchTerm.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === "all" ||
+      product.categories?.some(
+        (cat) =>
+          cat.id === Number(selectedCategory)
+      );
+
+    return matchesSearch && matchesCategory;
+  }
 );
   
   return (
@@ -87,12 +112,28 @@ const filteredProducts = products.filter(
           >
             <div className="flex h-[50px] w-full overflow-hidden rounded-full bg-white">
 
-              <div className="flex items-center gap-2 border-r border-[#E5E5E5] px-4 lg:px-6">
-                <span className="text-sm text-[#A6A6A6] whitespace-nowrap">
-                  All Categories
-                </span>
-                <CaretDownIcon size={14} />
-              </div>
+              <select
+  value={selectedCategory}
+  onChange={(e) =>
+    setSelectedCategory(e.target.value)
+  }
+  className="bg-transparent text-sm outline-none  border-r border-[#E5E5E5] "
+>
+  <option value="all" className="pl-6">
+    All Categories
+  </option>
+
+  {categories.map((cat) => (
+    <option
+      key={cat.id}
+      value={cat.id}
+    >
+      {cat.name}
+    </option>
+    
+  ))}
+  <CaretDownIcon size={16} />
+</select>
 
               <input
                 type="text"
@@ -325,10 +366,13 @@ const filteredProducts = products.filter(
  {showSearch && searchTerm && (
   <div className="absolute inset-0 top-1/3 z-10  mx-auto  h-[400px] min-w-[350px] max-w-[700px]  rounded-sm bg-white shadow-xl overflow-y-auto">
 
-    {filteredProducts.length > 0 ? (
-      filteredProducts.map((product) => (
-        <div
+    {searchResults.length > 0 ? (
+      searchResults.map((product) => (
+        <Link
           key={product.id}
+           
+    to={`/product/${product.id}`}
+    
           className="flex items-center gap-4 border-b p-4 hover:bg-gray-50"
         >
           <img
@@ -353,7 +397,7 @@ const filteredProducts = products.filter(
               ? Number(product.prices.price) / 100
               : 0}
           </div>
-        </div>
+        </Link>
       ))
     ) : (
       <p className="p-6 text-center text-gray-500">

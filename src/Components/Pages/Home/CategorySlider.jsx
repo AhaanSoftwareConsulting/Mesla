@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 
 const CategorySlider = () => {
@@ -61,7 +62,7 @@ const [transition, setTransition] = useState(true);
         </h3>
 
         <button className="cursor-pointer flex items-center gap-2 text-[#115492] text-sm md:text-base font-medium">
-                  View All Products
+                  View All Categories
                   <ArrowRightIcon size={16} />
                 </button>
       </div>
@@ -79,8 +80,9 @@ const [transition, setTransition] = useState(true);
   }}
 >
           {duplicatedCategories.map((category, index) => (
-            <div
+            <Link
                key={`${category.id}-${index}`}
+                to={`/category/${category.id}`}
               className="cursor-pointer group rounded-xl bg-white "
             >
               {/* Arc Box */}
@@ -96,7 +98,7 @@ const [transition, setTransition] = useState(true);
               <h3 className="mt-4 text-center font-semibold text-lg lg:text-2xl leading-snug text-[#232F3F]">
                 {category.name}
               </h3>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

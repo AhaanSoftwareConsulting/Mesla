@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../../../Context/CartContext";
 import {
@@ -151,13 +152,13 @@ if (!filteredProducts.length) {
                 className="group w-[234px] flex-shrink-0 rounded-xl bg-white p-[30px_20px]"
               >
                 {/* Image */}
-                <div className="flex h-[160px] items-center justify-center overflow-hidden">
+                <Link to={`/product/${product.id}`} className="flex h-[160px] items-center justify-center overflow-hidden">
                   <img
                     src={product.images?.[0]?.src}
                     alt={product.name}
                     className="h-full object-contain transition duration-500 group-hover:scale-105"
                   />
-                </div>
+                </Link>
 
                 {/* Title */}
                 <h3 className="mt-6 line-clamp-2 text-[17px] font-semibold text-[#232F3F]">

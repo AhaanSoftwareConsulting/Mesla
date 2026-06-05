@@ -40,13 +40,13 @@ export default function Features() {
               <div className="relative">
                 {/* Outer Gradient Ring */}
                 <div className="flex h-[120px] w-[120px] lg:h-[150px] lg:w-[150px] items-center justify-center  gradient-border ">
-                    <div className="flex h-[115px] w-[115px] lg:h-[145px] w-lg:[145px] items-center justify-center bg-[#232F3F] rounded-full">
+                    <div className="flex h-[115px] w-[115px] lg:h-[145px] lg:w-[145px] items-center justify-center bg-[#232F3F] rounded-full">
                   
                   <div className="flex h-[95px] w-[95px] lg:h-[120px] lg:w-[120px] items-center justify-center rounded-full bg-white">
                     <img
                       src={item.icon}
                       alt={item.title}
-                      className="w-14 h-14 lg:h-18 lg:w-18 object-contain"
+                      className="h-14 w-14 lg:h-18 lg:w-18 object-contain"
                     />
                   </div>
                   </div>

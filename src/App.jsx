@@ -5,6 +5,8 @@ import Topbar from "./Components/Layouts/Topbar";
 import Header from "./Components/Layouts/Header";
 import Footer from "./Components/Layouts/Footer";
 import HomeComponents from "./Components/Pages/Home/HomeComponents";
+import ProductDetails from "./Components/Pages/ProductDetails";
+import CategoryProducts from "./Components/Pages/CategoryProducts";
 
 const ScrollToTop = () => {
   
@@ -27,7 +29,16 @@ function App() {
       <Header onSearch={setSearchTerm} />
         <Routes>
           <Route path="/" element={<HomeComponents searchTerm={searchTerm}/>} />
+          <Route
+    path="/product/:id"
+    element={<ProductDetails />}
+  />
+  <Route
+  path="/category/:id"
+  element={<CategoryProducts />}
+/>
         </Routes>
+        
        <Footer/>
        </CartProvider>
       </BrowserRouter>
