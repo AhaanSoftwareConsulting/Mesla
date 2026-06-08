@@ -109,7 +109,7 @@ const searchResults = products.filter(
           {/* Desktop Search */}
           <form
             onSubmit={handleSearch}
-            className="hidden md:flex flex-1 max-w-[700px]"
+            className="hidden lg:flex flex-1 max-w-[700px]"
           >
             <div className="flex h-[50px] w-full overflow-hidden rounded-full bg-white">
 
@@ -118,7 +118,7 @@ const searchResults = products.filter(
   onChange={(e) =>
     setSelectedCategory(e.target.value)
   }
-  className="bg-transparent text-sm outline-none pl-4 border-r border-[#E5E5E5] "
+  className="w-[150px] bg-transparent text-sm outline-none pl-4  border-r border-[#E5E5E5] "
 >
   <option value="all" >
     All Categories
@@ -217,9 +217,31 @@ const searchResults = products.filter(
         {/* Mobile Search */}
         <form
           onSubmit={handleSearch}
-          className="mt-4 md:hidden"
+          className="mt-4 lg:hidden"
         >
           <div className="flex h-[46px] overflow-hidden rounded-full bg-white">
+ <select
+  value={selectedCategory}
+  onChange={(e) =>
+    setSelectedCategory(e.target.value)
+  }
+  className="w-[100px] sm:w-[160px] bg-transparent text-xs sm:text-sm outline-none pl-1 sm:pl-4 border-r border-[#E5E5E5] "
+>
+  <option value="all" >
+    All Categories
+  </option>
+
+  {categories.map((cat) => (
+    <option
+      key={cat.id}
+      value={cat.id}
+    >
+      {cat.name}
+    </option>
+    
+  ))}
+  <CaretDownIcon size={16} />
+</select>
 
             <input
               type="text"
@@ -233,13 +255,13 @@ const searchResults = products.filter(
     setShowSearch(false);
   }
 }}
-              placeholder="Search by products name of SKU..."
-              className="flex-1 px-4 text-sm outline-none"
+              placeholder="Search  products"
+              className="flex-1 px-2 sm:px-4 text-sm outline-none"
             />
 
             <button
               type="submit"
-              className="bg-[#115492] px-5 text-white"
+              className="bg-[#115492] px-4 sm:px-6 text-white"
             >
               <MagnifyingGlassIcon size={20} />
             </button>
