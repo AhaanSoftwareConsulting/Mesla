@@ -225,7 +225,7 @@ const searchResults = products.filter(
   onChange={(e) =>
     setSelectedCategory(e.target.value)
   }
-  className="w-[160px] sm:w-[260px] bg-transparent text-xs sm:text-sm outline-none pl-1 sm:pl-4 border-r border-[#E5E5E5] "
+  className="w-[165px] sm:w-[260px] bg-transparent text-xs sm:text-sm outline-none pl-4 border-r border-[#E5E5E5] "
 >
   <option value="all" >
     All Categories
