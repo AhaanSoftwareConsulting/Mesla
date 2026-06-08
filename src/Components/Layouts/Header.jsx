@@ -15,6 +15,7 @@ const Header = ({
   onSearch = () => {},
 }) => {
   const [cartOpen, setCartOpen] = useState(false);
+  const [menu, setMenu] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [products, setProducts] = useState([]);
@@ -117,9 +118,9 @@ const searchResults = products.filter(
   onChange={(e) =>
     setSelectedCategory(e.target.value)
   }
-  className="bg-transparent text-sm outline-none  border-r border-[#E5E5E5] "
+  className="bg-transparent text-sm outline-none pl-4 border-r border-[#E5E5E5] "
 >
-  <option value="all" className="pl-6">
+  <option value="all" >
     All Categories
   </option>
 
@@ -160,14 +161,26 @@ const searchResults = products.filter(
 
           {/* Right Side */}
           <div className="flex items-center gap-4">
+            <div className="relative">
+  {/* Account */}
+  <button
+    className="hidden lg:flex items-center gap-2 text-white cursor-pointer"
+    onClick={() => setMenu(!menu)}
+  >
+    <span className="text-sm font-medium">
+      My Account
+    </span>
+    <CaretDownIcon size={14} />
+  </button>
 
-            {/* Account */}
-            <button className="hidden lg:flex items-center gap-2 text-white cursor-pointer">
-              <span className="text-sm font-medium">
-                My Account
-              </span>
-              <CaretDownIcon size={14} />
-            </button>
+  {menu && (
+    <div className="absolute right-0 top-full mt-3 z-50 hidden lg:flex flex-col rounded-lg bg-white p-4 shadow-lg min-w-[180px]">
+      <button className="flex items-center gap-3 py-3">
+        Logout
+      </button>
+    </div>
+  )}
+</div>
 
             {/* Wishlist */}
             <button className="cursor-pointer relative text-white">
@@ -187,7 +200,7 @@ const searchResults = products.filter(
 
             {/* Mobile Menu */}
             <button
-              className="md:hidden text-white"
+              className="lg:hidden text-white"
               onClick={() =>
                 setMobileMenu(!mobileMenu)
               }
@@ -232,24 +245,18 @@ const searchResults = products.filter(
             </button>
           </div>
         </form>
-
+ 
         {/* Mobile Menu */}
         {mobileMenu && (
-          <div className="md:hidden mt-4 rounded-lg bg-white p-4">
+          <div className="lg:hidden mt-4 rounded-lg bg-white p-4">
 
-            <button className="flex items-center justify-between w-full py-3 border-b">
+            <button className="flex items-center justify-between  py-3 border-b">
               <span>My Account</span>
               <CaretDownIcon size={16} />
             </button>
 
             <button className="flex items-center gap-3 py-3">
-              <HeartStraightIcon size={20} />
-              Wishlist
-            </button>
-
-            <button className="flex items-center gap-3 py-3">
-              <HandbagIcon size={20} />
-              Cart ({totalCartItems})
+              Logout
             </button>
           </div>
         )}
