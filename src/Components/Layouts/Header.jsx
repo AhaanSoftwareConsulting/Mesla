@@ -225,7 +225,7 @@ const searchResults = products.filter(
   onChange={(e) =>
     setSelectedCategory(e.target.value)
   }
-  className="w-[100px] sm:w-[160px] bg-transparent text-xs sm:text-sm outline-none pl-1 sm:pl-4 border-r border-[#E5E5E5] "
+  className="w-[160px] sm:w-[260px] bg-transparent text-xs sm:text-sm outline-none pl-1 sm:pl-4 border-r border-[#E5E5E5] "
 >
   <option value="all" >
     All Categories
@@ -261,7 +261,7 @@ const searchResults = products.filter(
 
             <button
               type="submit"
-              className="bg-[#115492] px-4 sm:px-6 text-white"
+              className="hidden sm:flex items-center justify-center bg-[#115492] px-4 sm:px-6 text-white"
             >
               <MagnifyingGlassIcon size={20} />
             </button>
