@@ -144,7 +144,7 @@ const searchResults = products.filter(
 }}onBlur={() =>
   setTimeout(() => setShowSearch(false), 200)
 }
-                placeholder="Search products..."
+                placeholder="Search by products name of SKU..."
                 className="flex-1 px-4 text-sm outline-none"
               />
               
@@ -264,7 +264,7 @@ const searchResults = products.filter(
     />
 
     {/* Drawer */}
-    <div className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-50 shadow-xl overflow-y-auto">
+    <div className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-50 shadow-xl overflow-y-auto p-4">
 
       {/* Header */}
       <div className="flex items-center justify-between border-b p-5">

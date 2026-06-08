@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="max-w-[1440px] relative mx-auto px-4 md:px-8 lg:px-12 xl:px-[70px] py-10 md:py-[75px]">
                 
                 {/* FOOTER CONTENT */}
-                    <div className="grid  grid-cols-1 lg:grid-cols-4 xl:grid-cols-12  gap-10 xl:gap-[139px] overflow-hidden">
+                    <div className="grid  grid-cols-1 lg:grid-cols-4 xl:grid-cols-12  gap-10 xl:gap-[135px] overflow-hidden">
                         {/* LEFT */}
                     <div className="relative xl:col-span-3">
                         {/* Logo */}

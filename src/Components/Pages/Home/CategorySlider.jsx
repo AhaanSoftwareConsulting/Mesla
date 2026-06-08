@@ -95,7 +95,7 @@ const [transition, setTransition] = useState(true);
               </div>
 
               {/* Name */}
-              <h3 className="mt-4 text-center font-semibold text-lg lg:text-2xl leading-snug text-[#232F3F]">
+              <h3 className="mt-4 text-center font-semibold text-lg lg:text-2xl leading-snug text-[#232F3F] font-heading">
                 {category.name}
               </h3>
             </Link>
