@@ -37,7 +37,7 @@ export default function Features() {
               className="flex flex-col items-center text-center"
             >
               {/* Circle */}
-              <div className="relative">
+              <div className="relative float">
                 {/* Outer Gradient Ring */}
                 <div className="flex h-[120px] w-[120px] lg:h-[150px] lg:w-[150px] items-center justify-center  gradient-border ">
                     <div className="flex h-[115px] w-[115px] lg:h-[145px] lg:w-[145px] items-center justify-center bg-[#232F3F] rounded-full">

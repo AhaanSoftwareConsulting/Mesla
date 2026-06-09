@@ -66,7 +66,7 @@ export default function Hero() {
               {lightingItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex flex-col items-center"
+                  className="flex flex-col items-center float"
                 >
                   <div className="h-[72px] w-[72px] overflow-hidden rotate-45 rounded-[18px]">
                     <img

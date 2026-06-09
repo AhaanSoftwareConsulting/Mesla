@@ -61,7 +61,7 @@ const [transition, setTransition] = useState(true);
           Shop Categories
         </h3>
 
-        <button className="cursor-pointer flex items-center gap-2 text-[#115492] text-sm md:text-base font-medium">
+        <button className="cursor-pointer flex items-center gap-2 text-[#115492] text-sm md:text-base font-medium hover:scale-110 transition-transform duration-300">
                   View All Categories
                   <ArrowRightIcon size={16} />
                 </button>
@@ -86,7 +86,7 @@ const [transition, setTransition] = useState(true);
               className="cursor-pointer group rounded-xl bg-white "
             >
               {/* Arc Box */}
-              <div className="relative w-[221px] p-5 jutify-center h-[248px] overflow-hidden rounded-t-full bg-[linear-gradient(180deg,#A18463_0%,#F3E2B8_100%)]">
+              <div className="relative w-[221px] p-5 jutify-center h-[248px] overflow-hidden rounded-t-full bg-[linear-gradient(180deg,#A18463_0%,#F3E2B8_100%)] hover:scale-105 transition-transform duration-300">
                 <img
                   src={category.image?.src}
                   alt={category.name}

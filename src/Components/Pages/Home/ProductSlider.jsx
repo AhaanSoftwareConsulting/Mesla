@@ -109,7 +109,7 @@ if (!filteredProducts.length) {
           Recommended <br className="sm:hidden"/> for you
         </h3>
 
-        <button className="cursor-pointer flex items-center gap-2 text-[#115492] text-sm md:text-base font-medium">
+        <button className="cursor-pointer flex items-center gap-2 text-[#115492] text-sm md:text-base font-medium hover:scale-110 transition-transform duration-300">
           View All Products
           <ArrowRightIcon size={16} />
         </button>
@@ -149,7 +149,7 @@ if (!filteredProducts.length) {
             {duplicatedProducts.map((product, index) => (
               <div
                key={`${product.id}-${index}`}
-                className="group w-[234px] flex-shrink-0 rounded-xl bg-white p-[30px_20px]"
+                className="group w-[234px] flex-shrink-0 rounded-xl bg-white p-[30px_20px] hover:scale-110 transition-transform duration-300"
               >
                 {/* Image */}
                 <Link to={`/product/${product.id}`} className="flex h-[160px] items-center justify-center overflow-hidden">
@@ -191,11 +191,11 @@ if (!filteredProducts.length) {
                 {/* Hover Buttons */}
                 <div className="mt-5 flex items-center gap-3 opacity-0 translate-y-3 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                   
-                  <button   onClick={() => addToCart(product)} className="cursor-pointer flex h-10 w-10 items-center justify-center rounded border border-[#115492] text-[#115492]">
+                  <button   onClick={() => addToCart(product)} className="cursor-pointer flex h-10 w-10 items-center justify-center rounded border border-[#115492] text-[#115492] hover:scale-110 transition-transform duration-300">
                     <ShoppingCartIcon size={18} />
                   </button>
 
-                  <button className="cursor-pointer rounded bg-[#115492] px-5 py-2 text-sm font-medium text-white">
+                  <button className="cursor-pointer rounded bg-[#115492] px-5 py-2 text-sm font-medium text-white hover:scale-110 transition-transform duration-300">
                     BUY NOW
                   </button>
                 </div>

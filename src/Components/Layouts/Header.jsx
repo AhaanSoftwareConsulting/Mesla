@@ -183,12 +183,12 @@ const searchResults = products.filter(
 </div>
 
             {/* Wishlist */}
-            <button className="cursor-pointer relative text-white">
+            <button className="cursor-pointer relative text-white hover:scale-110 transition-transform duration-300">
               <HeartStraightIcon size={24} />
             </button>
 
             {/* Cart */}
-            <button onClick={() => setCartOpen(true)} className="cursor-pointer relative text-white">
+            <button onClick={() => setCartOpen(true)} className="cursor-pointer relative text-white hover:scale-110 transition-transform duration-300">
               <HandbagIcon size={24} />
 
               {totalCartItems > 0 && (

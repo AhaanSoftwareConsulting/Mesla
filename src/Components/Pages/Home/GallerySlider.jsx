@@ -66,7 +66,7 @@ const GallerySlider = () => {
             w-[320px]
             flex-shrink-0
             overflow-hidden
-            rounded-[16px]
+            rounded-[16px] hover:scale-105 transition-transform duration-300
             ${
               isShort
                 ? "h-auto my-[40px]"
