@@ -51,7 +51,7 @@ export default function Hero() {
         
         <h1
           
-          className="text-[27px] md:text-4xl lg:text-[45px] xl:text-[60px] leading-tight font-heading font-bold text-white"          
+          className="text-[27px] md:text-4xl lg:text-[45px] xl:text-[60px] leading-tight font-heading font-bold text-white typing"          
         >
           Transform Interiors <br />  With Premium <span className="sm:text-[#40ABE2] ">Lighting</span>
         </h1>

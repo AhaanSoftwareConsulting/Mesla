@@ -26,3 +26,41 @@ body {
   padding: 2.29px;
   border-radius: 50%;
 }
+
+.typing {
+  width: fit-content;
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 3s steps(20, end) forwards,
+    blink 0.7s step-end ;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }  
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+

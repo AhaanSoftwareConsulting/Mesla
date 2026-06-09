@@ -73,7 +73,7 @@ return(
           className={` 
             bg-white rounded-[18px]
             shadow-[0px_4px_20px_rgba(0,0,0,0.08)]
-            pt-[40px] px-[16px] pb-[20px]
+            pt-[40px] px-[16px] pb-[20px] float
            
             ${index % 2 === 1 ? "xl:translate-y-[110px]" : ""}
           `}
